@@ -1,0 +1,240 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  font-family: "Anonymous Pro", monospace;
+}
+
+/* ── NAV ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  opacity: 1;
+}
+
+.navbar a.active {
+  text-decoration: none;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* ── BLOG HEADER ── */
+.blog-header {
+  padding: 140px 80px 60px;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-subtitle {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.blog-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(64px, 8vw, 120px);
+  line-height: 1;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.blog-desc {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 14px;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  gap: 0;
+  padding: 0 80px;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-btn {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: #999;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  color: #000;
+}
+
+.filter-btn.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* ── BLOG FEED ── */
+.blog-feed {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── ENTRY ── */
+.entry {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #eee;
+  padding: 48px 0;
+  transition: background 0.2s;
+}
+
+.entry:hover {
+  background: #fafafa;
+}
+
+/* Colored left stripe */
+.entry-stripe {
+  width: 4px;
+  flex-shrink: 0;
+  margin-right: 32px;
+  border-radius: 2px;
+}
+
+.entry-stripe.red {
+  background: #b80000;
+}
+.entry-stripe.green {
+  background: #008000;
+}
+
+/* Entry content */
+.entry-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.entry-author {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.entry-author.red {
+  color: #c00000;
+}
+.entry-author.green {
+  color: #006600;
+}
+
+.entry-date {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.08em;
+}
+
+.entry-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  color: #000;
+  line-height: 1.1;
+}
+
+.entry-content {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  max-width: 640px;
+}
+
+/* ── FOOTER ── */
+.blog-footer {
+  text-align: center;
+  padding: 40px;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #ccc;
+  border-top: 1px solid #eee;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .blog-header {
+    padding: 100px 32px 40px;
+  }
+  .filter-bar {
+    padding: 0 32px;
+  }
+  .blog-feed {
+    padding: 40px 32px;
+  }
+}

@@ -1,0 +1,190 @@
+:root {
+  /* CHANGE THIS COLOR TO CHANGE EVERYTHING (STRIPE + TEXT) */
+  --accent-color: #8b0000;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Anonymous Pro", monospace;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ── NAV ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  opacity: 1;
+}
+
+.navbar a.active {
+  text-decoration: none;
+}
+
+.navbar a.active {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* MAIN LAYOUT */
+.port-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding-top: 80px;
+  padding-left: 10%;
+  padding-right: 5%;
+}
+
+.port-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 5;
+}
+
+.port-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 110px;
+  line-height: 0.85;
+  color: #000;
+}
+
+.port-course {
+  font-size: 44px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  color: var(--accent-color); /* Variable used */
+}
+
+.port-info {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.info-item {
+  margin-bottom: 30px;
+}
+
+/* CENTER PILLAR */
+.port-center {
+  position: relative;
+  width: 180px;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+}
+
+.port-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color); /* Variable used */
+  z-index: 1;
+}
+
+.port-photo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 90vh;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  z-index: 2;
+}
+
+/* RIGHT SECTION */
+.port-right {
+  flex: 1;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  z-index: 5;
+}
+
+.sidebar-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--accent-color); /* Variable used */
+}
+
+.sidebar-list li {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* BACK ARROW */
+.back-arrow {
+  position: absolute;
+  top: 120px;
+  left: 100px;
+  font-size: 60px;
+  z-index: 10;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Use this for any other text you want colored */
+.red {
+  color: var(--accent-color);
+}

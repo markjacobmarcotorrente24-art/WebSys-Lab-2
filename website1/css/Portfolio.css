@@ -1,0 +1,257 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  font-family: "Anonymous Pro", monospace;
+}
+
+/* ── NAV ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  opacity: 1;
+}
+
+.navbar a.active {
+  text-decoration: none;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* ── LAYOUT ── */
+.wrapper {
+  display: flex;
+  height: 100vh;
+  padding-top: 70px;
+}
+
+.side-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.side-container:hover {
+  flex: 3; /* Increased slightly to accommodate bigger text */
+}
+
+/* ── CENTER DIVIDER ── */
+.center-divider {
+  display: flex;
+  width: 10px;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+/* ── CONTENT ALIGNMENT ── */
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  z-index: 10;
+}
+
+.left-side .content-wrapper {
+  justify-content: flex-end;
+}
+.right-side .content-wrapper {
+  justify-content: flex-start;
+}
+
+.text-area {
+  padding: 0 50px;
+  min-width: 500px; /* Increased slightly for larger text flow */
+  transition: all 0.5s ease;
+  flex-shrink: 0;
+}
+
+.left-side .text-area {
+  text-align: right;
+}
+.right-side .text-area {
+  text-align: left;
+}
+
+/* ── PHOTO BOX ── */
+.photo-box {
+  width: 180px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.red-bg {
+  background: #b80000;
+}
+.green-bg {
+  background: #008000;
+}
+
+.portfolio-img {
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+/* ── TEXT STYLING ── */
+.name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 60px;
+  line-height: 0.9;
+  color: #000;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.course {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  margin: 5px 0;
+  transition: all 0.5s ease;
+}
+
+.red {
+  color: #b80000;
+}
+.green {
+  color: #008000;
+}
+
+.details {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.address,
+.desc {
+  font-size: 16px;
+  transition: font-size 0.5s ease;
+}
+
+/* ── HOVER REVEAL & TEXT SIZE CHANGES ── */
+
+/* 1. Make Name and Course Bigger on Hover */
+.side-container:hover .name {
+  color: #fff;
+  font-size: 90px; /* Big impact size */
+  letter-spacing: 2px;
+}
+
+.side-container:hover .course {
+  color: #fff;
+  font-size: 42px; /* Proportional to name */
+}
+
+/* 2. Reveal Details and Increase Body Text Size */
+.side-container:hover .details {
+  opacity: 1;
+  max-height: 500px;
+  color: #fff;
+  margin-top: 25px;
+}
+
+.side-container:hover .address,
+.side-container:hover .desc {
+  font-size: 22px; /* Bigger details text */
+  margin-bottom: 10px;
+}
+
+.side-container:hover .portfolio-img {
+  filter: grayscale(0%);
+}
+
+/* Background Color Fill */
+.flood {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.left-side:hover .flood {
+  background: #b80000;
+  opacity: 1;
+}
+.right-side:hover .flood {
+  background: #008000;
+  opacity: 1;
+}
+
+/* Button Styling */
+.view-btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 14px 32px;
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 16px; /* Slightly bigger button text */
+  border: 1px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #fff;
+  color: #000;
+}

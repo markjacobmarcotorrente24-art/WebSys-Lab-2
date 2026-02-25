@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  font-family: "Anonymous Pro", monospace;
+}
+
+/* ── NAV ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  opacity: 1;
+}
+
+.navbar a.active {
+  text-decoration: none;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* ── HOME HEADER ── */
+.home-header {
+  padding: 140px 80px 80px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.home-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(64px, 10vw, 140px);
+  line-height: 1;
+  color: #000;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.home-subtitle {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.home-divider {
+  width: 80px;
+  height: 2px;
+  background: #000;
+  margin: 0 auto 32px;
+}
+
+.home-description {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #999;
+  line-height: 1.8;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: #000;
+  border-radius: 1px;
+  position: relative;
+}
+
+.scroll-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #000;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+.scroll-indicator.hide {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+/* ── HOME MAIN ── */
+.home-main {
+  padding: 80px;
+}
+
+.nav-cards {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+/* ── NAVIGATION CARD ── */
+.nav-card {
+  padding: 48px 40px;
+  border: 1px solid #eee;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+.nav-card:nth-child(1):hover {
+  border-color: #b80000;
+  border-width: 2px;
+  background: #fafafa;
+  transform: translateY(-4px);
+}
+
+.nav-card:nth-child(2):hover {
+  border-color: #008000;
+  border-width: 2px;
+  background: #fafafa;
+  transform: translateY(-4px);
+}
+
+.card-number {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #999;
+}
+
+.card-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 42px;
+  color: #000;
+  line-height: 1;
+}
+
+.card-desc {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ── HOME FOOTER ── */
+.home-footer {
+  text-align: center;
+  padding: 40px;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #ccc;
+  border-top: 1px solid #eee;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .home-header {
+    padding: 100px 32px 60px;
+  }
+
+  .home-title {
+    margin-bottom: 16px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .home-description {
+    font-size: 12px;
+  }
+
+  .home-main {
+    padding: 40px 32px;
+  }
+
+  .nav-cards {
+    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .nav-card {
+    padding: 32px 24px;
+  }
+
+  .card-title {
+    font-size: 32px;
+  }
+}
