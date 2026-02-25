@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — BSIT 2C</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;600&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/website1/css/blog.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="/website1/index.html">HOME</a>
+    <a href="blog.html" class="active">BLOG</a>
+    <a href="projects.html">PORTFOLIO</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="blog-header">
+    <p class="blog-subtitle">BSIT-2C · LABORATORY 2</p>
+    <h1 class="blog-title">DAILY BLOG</h1>
+    <p class="blog-desc">Daily entries by Mark Jacob M. Torrente & Xian Bryan C. Peralta</p>
+  </header>
+
+  <!-- FILTER TABS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="mark">MARK</button>
+    <button class="filter-btn" data-filter="xian">XIAN</button>
+  </div>
+
+  <!-- BLOG ENTRIES -->
+  <main class="blog-feed">
+
+    <!-- ═══════════════════════════════
+         FEBRUARY 25, 2026
+    ═══════════════════════════════ -->
+
+    <!-- MARK — Feb 25 -->
+    <article class="entry mark" data-author="mark">
+      <div class="entry-stripe red"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author red">MARK JACOB M. TORRENTE</span>
+          <span class="entry-date">February 25, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened today. Talk about your coding experience, what you learned,
+          challenges you faced, or anything that happened during the day. Be honest and
+          personal — this is your daily journal entry.
+        </p>
+      </div>
+    </article>
+
+    <!-- XIAN — Feb 25 -->
+    <article class="entry xian" data-author="xian">
+      <div class="entry-stripe green"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author green">XIAN BRYAN C. PERALTA</span>
+          <span class="entry-date">February 25, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened today. Talk about your coding experience, what you learned,
+          challenges you faced, or anything that happened during the day. Be honest and
+          personal — this is your daily journal entry.
+        </p>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════
+         FEBRUARY 24, 2026
+    ═══════════════════════════════ -->
+
+    <!-- MARK — Feb 24 -->
+    <article class="entry mark" data-author="mark">
+      <div class="entry-stripe red"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author red">MARK JACOB M. TORRENTE</span>
+          <span class="entry-date">February 24, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened on this day.
+        </p>
+      </div>
+    </article>
+
+    <!-- XIAN — Feb 24 -->
+    <article class="entry xian" data-author="xian">
+      <div class="entry-stripe green"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author green">XIAN BRYAN C. PERALTA</span>
+          <span class="entry-date">February 24, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened on this day.
+        </p>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════
+         FEBRUARY 23, 2026
+    ═══════════════════════════════ -->
+
+    <!-- MARK — Feb 23 -->
+    <article class="entry mark" data-author="mark">
+      <div class="entry-stripe red"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author red">MARK JACOB M. TORRENTE</span>
+          <span class="entry-date">February 23, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened on this day.
+        </p>
+      </div>
+    </article>
+
+    <!-- XIAN — Feb 23 -->
+    <article class="entry xian" data-author="xian">
+      <div class="entry-stripe green"></div>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-author green">XIAN BRYAN C. PERALTA</span>
+          <span class="entry-date">February 23, 2026</span>
+        </div>
+        <h2 class="entry-title">Write your blog title here</h2>
+        <p class="entry-content">
+          Write what happened on this day.
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="blog-footer">
+    <p>BSIT-2C · GROUP PORTFOLIO · 2026</p>
+  </footer>
+
+  <script>
+    // Filter buttons
+    const btns = document.querySelectorAll('.filter-btn');
+    const entries = document.querySelectorAll('.entry');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        entries.forEach(entry => {
+          if (filter === 'all' || entry.dataset.author === filter) {
+            entry.style.display = 'flex';
+          } else {
+            entry.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
