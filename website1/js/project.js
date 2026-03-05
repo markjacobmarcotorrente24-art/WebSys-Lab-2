@@ -1,3 +1,6 @@
+/**
+ * for mouse hover effect
+ */
 const panels = document.querySelectorAll(".panel");
 
 panels.forEach((panel) => {
